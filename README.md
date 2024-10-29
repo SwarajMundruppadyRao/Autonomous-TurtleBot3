@@ -52,15 +52,50 @@ The project involves the following tasks :
     ```
 
 3. Install the package dependencies in the ROS workspace and colcon build 
+
     ```bash
     rosdep install --from-paths src -y --ignore-src
     colcon build --allow-overriding mage_msgs ros2_aruco_interfaces turtlebot3_navigation2
     ```
 
-4. Set the TURTLEBOT3_MODEL env variable to waffle by adding this line to .bashrc and source it
+4. Set the TURTLEBOT3_MODEL env variable to waffle by adding this line to .bashrc and source bash
+
     ```bash
     echo 'export TURTLEBOT3_MODEL=waffle' >> ~/.bashrc
     source ~/.bashrc
     ```
 
-5. 
+5. Launch the TurtleBot3 Waflle model in Gazebo and RViz. Set the initial pose by selecting the ```2D Pose Estimate``` in RViz 
+
+    ```bash
+    ros2 launch final_project final_project.launch.py
+    ```
+
+6. Launch the ```tbot_nodes.launch.py``` to start the camera broadcaster nodes
+
+    ```bash
+    ros2 launch group5_final tbot_nodes.launch.py
+    ```
+
+
+7. Launch the ```tbot_pub.launch.py``` file to extract the waypoints
+
+    ```bash
+    ros2 launch group5_final tbot_pub.launch.py
+    ```
+
+8. To call the action to execute the waypoint navigation using following command 
+
+    ```bash
+    ros2 run group5_final tbot_follow_waypoints
+    ```
+
+
+The robot will fully navigate through the waypoints in the order mentioned in the parameter file by reading the aruco markers. 
+
+
+## Citations
+
+Group5, Autonomous TurtleBot3 [Source code]. GitHub. Available at: [https://github.com/SwarajMundruppadyRao/Autonomous-TurtleBot3](https://github.com/SwarajMundruppadyRao/Autonomous-TurtleBot3).
+
+Special thanks to Professor Zeid Kootbally for his guidance, support, and for providing essential files and resources that contributed to the development of this project.
