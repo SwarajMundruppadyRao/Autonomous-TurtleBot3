@@ -1,6 +1,9 @@
 # Autonomous Mobile Robot 
 This repository contains the ENPM809Y Final Project submission, showcasing autonomous navigation using SLAM and action-client nodes in ROS2. Waypoints are generated based on the detected positions of batteries placed within the environment, as captured by cameras. The robot's current position and waypoint locations are determined by referencing the TF tree for precise navigation.
 
+![AutoTbot3](https://github.com/user-attachments/assets/97ce8b00-cfc0-480e-aa2c-45290c846825)
+
+
 ## Project Objectives  
 The project involves the following tasks : 
 - Creating a map of the environment
