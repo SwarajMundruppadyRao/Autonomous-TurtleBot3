@@ -17,19 +17,50 @@ The project involves the following tasks :
 - Compatibility with ROS2 Humble and Gazebo simulation environment
 
 ## Dependencies :
-| Dependency       | Recommended Version  |
-|------------------|----------------------|
-| ROS2             | Humble               |
-| Gazebo           | Latest Compatible    |
-| OpenCV           | Latest Compatible    |
-| OpenCV Contrib   | Latest Compatible    |
-| numpy            | < 2                  |
+| Dependency       | Recommended Version  | Installation Command                                                                 |
+|------------------|----------------------|--------------------------------------------------------------------------------------|
+| ROS2             | Humble               | [ROS2 Humble Installation Guide](https://docs.ros.org/en/humble/Installation.html)   |
+| Gazebo           | Latest Compatible    | Installed with ROS2 or `sudo apt install ros-humble-gazebo-ros-pkgs`                 |
+| OpenCV           | Latest Compatible    | `sudo apt-get install libopencv-dev python3-opencv`                                  |
+| OpenCV Contrib   | Latest Compatible    | Included with OpenCV installation                                                    |
+| numpy            | < 2                  | `pip install "numpy<2"`                                                              |
 
 
-## Steps to replicate the results 
+## Steps to setup and run
 
-1. Create a directory 
-2. 
-   
+1. Create a new workspace
 
+    ```bash
+    cd  
+    mkdir -p ~/ros_ws/src
+    cd ros_ws/src
+    git clone https://github.com/SwarajMundruppadyRao/Autonomous-TurtleBot3.git
+    cd ..
+    ```
 
+2. Make sure the folder structure looks like this 
+    ``` bash 
+    ros2_ws  
+    ├── src
+    │   ├── Autonomous-TurtleBot3
+    │   ├── final_project
+    │   ├── group5_final
+    │   ├── mage_msgs
+    │   ├── ros2_aruco
+    │   ├── turtlebot3_navigation2
+    │   ├── README.md
+    ```
+
+3. Install the package dependencies in the ROS workspace and colcon build 
+    ```bash
+    rosdep install --from-paths src -y --ignore-src
+    colcon build --allow-overriding mage_msgs ros2_aruco_interfaces turtlebot3_navigation2
+    ```
+
+4. Set the TURTLEBOT3_MODEL env variable to waffle by adding this line to .bashrc and source it
+    ```bash
+    echo 'export TURTLEBOT3_MODEL=waffle' >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
+5. 
